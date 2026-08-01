@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js" defer></script>
+    <title>🎲 Random Picker PRO</title>
+  </head>
+  <body>
+    <main class="app-layout">
+      <div class="brand">
+        <div class="brand-title">
+          <i data-lucide="dice-5" class="brand-icon"></i>
+          <h1>Random Picker</h1>
+        </div>
+
+        <p>Add items, hit pick and let fate decide! 💯</p>
+      </div>
+
+      <aside class="left-sidebar">
+        <!-- ADD NEW ITEM -->
+        <div class="sidebar-card item-box">
+          <div class="card-header">
+            <h2>Add New Item</h2>
+            <i data-lucide="plus-circle"></i>
+          </div>
+
+          <div class="item-input">
+            <input
+              type="text"
+              id="addInput"
+              placeholder="Enter your item..."
+              autocomplete="off"
+            />
+
+            <button type="button" class="primary-btn" id="addBtn">
+              <i data-lucide="plus"></i>
+              Add Item
+            </button>
+          </div>
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="sidebar-card options-box">
+          <div class="card-header">
+            <h2>Options</h2>
+            <i data-lucide="settings-2"></i>
+          </div>
+
+          <div class="option">
+            <div class="option-info">
+              <h3>Remove Winner</h3>
+              <p>Remove the selected item after picking.</p>
+            </div>
+
+            <label class="switch">
+              <input type="checkbox" id="removeWinnerToggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="option">
+            <div class="option-info">
+              <h3>Animation</h3>
+              <p>Show an animation before revealing the winner.</p>
+            </div>
+
+            <label class="switch">
+              <input type="checkbox" id="animationToggle" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STATISTICS -->
+        <div class="sidebar-card stats-box">
+          <div class="card-header">
+            <h2>Statistics</h2>
+            <i data-lucide="chart-column"></i>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <h3>Items</h3>
+              <span id="totalItems">0</span>
+            </div>
+
+            <div class="stat-box">
+              <h3>Picks</h3>
+              <span id="totalPicks">0</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="main-content-box">
+        <div class="picker-header">
+          <div>
+            <span class="eyebrow">Random selection</span>
+            <h2>Let's Pick!</h2>
+          </div>
+
+          <i data-lucide="sparkles"></i>
+        </div>
+
+        <div class="picker-content">
+          <div class="picker-state" id="pickerState">
+            <div class="picker-icon">
+              <i data-lucide="dice-5"></i>
+            </div>
+
+            <p class="picker-label" id="pickerLabel">Ready to choose?</p>
+
+            <h3 class="winner-name" id="winnerName">
+              Add items and let fate decide
+            </h3>
+
+            <p class="picker-description" id="pickerDescription">
+              One random item from your list will appear here.
+            </p>
+          </div>
+
+          <button class="pick-btn" id="pickBtn" type="button">
+            <i data-lucide="dice-5"></i>
+            Pick Random
+          </button>
+
+          <button class="pick-again-btn" id="pickAgainBtn" type="button" hidden>
+            <i data-lucide="rotate-ccw"></i>
+            Pick Again
+          </button>
+        </div>
+
+        <div class="picker-footer">
+          <div class="picker-info">
+            <i data-lucide="list"></i>
+
+            <div>
+              <span>Available items</span>
+              <strong id="availableItems">0</strong>
+            </div>
+          </div>
+
+          <div class="picker-info">
+            <i data-lucide="trophy"></i>
+
+            <div>
+              <span>Last winner</span>
+              <strong id="lastWinner">None</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="right-sidebar">
+        <div class="sidebar-card items-box">
+          <div class="card-header">
+            <h2>Items</h2>
+            <i data-lucide="list"></i>
+          </div>
+
+          <div class="search-box">
+            <i data-lucide="search"></i>
+
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search items..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="items-list" id="itemsList">
+            <div class="empty-state" id="emptyState">
+              <i data-lucide="inbox"></i>
+              <h3>No items yet</h3>
+              <p>Start by adding your first item to the list.</p>
+            </div>
+
+            <!-- JavaScript will render items here -->
+          </div>
+        </div>
+
+        <div class="sidebar-card actions-box">
+          <div class="card-header">
+            <h2>Actions</h2>
+            <i data-lucide="zap"></i>
+          </div>
+
+          <button class="secondary-btn" id="shuffleBtn" type="button">
+            <i data-lucide="shuffle"></i>
+            Shuffle Items
+          </button>
+
+          <button class="danger-btn" id="clearBtn" type="button">
+            <i data-lucide="trash-2"></i>
+            Clear All
+          </button>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
