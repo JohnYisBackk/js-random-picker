@@ -8,7 +8,7 @@ Add your own items, shuffle the list, search through entries, mark favorites, an
 
 ## 🚀 Live Demo
 
-🔗
+🔗 https://johnyisbackk.github.io/js-random-picker/
 
 ---
 
