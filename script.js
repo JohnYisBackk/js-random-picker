@@ -218,6 +218,7 @@ function clearAllItems() {
   if (!isConfirmed) return;
 
   items = [];
+  winnerName.textContent = "Add items and let fate decide";
 
   saveData();
   renderItems();
